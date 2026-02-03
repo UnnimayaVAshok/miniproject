@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 239 227 220; /* #EFD4C4 ALMOND */
+    --foreground: 78 7 20;     /* #4E0714 DARK SCARLET */
+
+    --card: 239 227 220;      /* #EFD4C4 ALMOND */
+    --card-foreground: 78 7 20;
+
+    --popover: 239 227 220;
+    --popover-foreground: 78 7 20;
+
+    --primary: 78 7 20;       /* #4E0714 DARK SCARLET */
+    --primary-foreground: 239 227 220;
+
+    --secondary: 120 23 39;   /* #781727 ANTIQUE RUBY */
+    --secondary-foreground: 239 227 220;
+
+    --muted: 172 88 103;     /* #AC5867 DEEP PUCE */
+    --muted-foreground: 78 7 20;
+
+    --accent: 226 179 194;   /* #E2B3C2 PINK PEARL */
+    --accent-foreground: 78 7 20;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 172 88 103;    /* #AC5867 DEEP PUCE */
+    --input: 172 88 103;
+    --ring: 78 7 20;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 78 7 20;   /* #4E0714 DARK SCARLET */
+    --foreground: 239 227 220;
+
+    --card: 78 7 20;
+    --card-foreground: 239 227 220;
+
+    --popover: 78 7 20;
+    --popover-foreground: 239 227 220;
+
+    --primary: 239 227 220;
+    --primary-foreground: 78 7 20;
+
+    --secondary: 226 179 194;
+    --secondary-foreground: 78 7 20;
+
+    --muted: 120 23 39;
+    --muted-foreground: 239 227 220;
+
+    --accent: 172 88 103;
+    --accent-foreground: 239 227 220;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 23 39;
+    --input: 120 23 39;
+    --ring: 239 227 220;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-smooth: antialiased;
+  }
+}
+
+@layer components {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-pop-in {
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .btn-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:scale-[1.02] hover:shadow-lg;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  80% { 
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% { 
+    transform: scale(1);
+  }
+}
+
+.cake-card {
+  @apply transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:scale-[1.03] hover:shadow-xl;
+}
+
+.carousel-image {
+  height: 500px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 300px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
